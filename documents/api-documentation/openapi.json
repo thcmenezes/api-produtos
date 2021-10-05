@@ -1,0 +1,369 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Produtos API",
+    "description": "API que retorna dados de produtos cadastrados (Catálogo de Produtos), compatível com a estrutura do Portal Único de Comércio Exterior (Siscomex) - site do Governo Federal do Brasil.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Developer",
+      "email": "thiago.menezes@outlook.com"
+    }
+  },
+  "externalDocs": {
+    "description": "Documentação API do Portal Único de Comércio Exterior",
+    "url": "https://api-docs.portalunico.siscomex.gov.br/"
+  },
+  "paths": {
+    "/produtos": {
+      "get": {
+        "summary": "Recupera todos os produtos",
+        "tags": [
+          "Produtos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Produtos"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Cria um novo produto",
+        "tags": [
+          "Produtos"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Produto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Produto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/produtos/{produtoId}": {
+      "parameters": [
+        {
+          "name": "produtoId",
+          "in": "path",
+          "schema": {
+            "type": "integer"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Recupera o produto a partir da ID informada",
+        "tags": [
+          "Produtos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Produto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Produto não encontrado",
+            "content": {
+              "application/json": {
+                "example": "Not found"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza o produto a partir da ID informada",
+        "tags": [
+          "Produtos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Produto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Produto não encontrado",
+            "content": {
+              "application/json": {
+                "example": "Not found"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Exclui o produto a partir da ID informada",
+        "tags": [
+          "Produtos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Produto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Produto não encontrado",
+            "content": {
+              "application/json": {
+                "example": "Not found"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ncms": {
+      "get": {
+        "summary": "Recupera todos as NCMs",
+        "tags": [
+          "NCMs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ncms"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Cria uma nova NCM",
+        "tags": [
+          "NCMs"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ncm"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ncm"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ncms/{ncmId}": {
+      "parameters": [
+        {
+          "name": "ncmId",
+          "in": "path",
+          "schema": {
+            "type": "integer"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Recupera a NCM a partir da ID informada",
+        "tags": [
+          "NCMs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ncm"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Produto não encontrado",
+            "content": {
+              "application/json": {
+                "example": "Not found"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza a NCM a partir da ID informada",
+        "tags": [
+          "NCMs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ncm"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "NCM não encontrada",
+            "content": {
+              "application/json": {
+                "example": "Not found"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Exclui a NCM a partir da ID informada",
+        "tags": [
+          "NCMs"
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ncm"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Produto não encontrado",
+            "content": {
+              "application/json": {
+                "example": "Not found"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "auth": []
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Produto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "cpf_cnpj": {
+            "type": "string"
+          },
+          "ativo": {
+            "type": "boolean"
+          },
+          "seq": {
+            "type": "integer"
+          },
+          "codigo": {
+            "type": "integer"
+          },
+          "denominacao": {
+            "type": "string"
+          },
+          "modalidade": {
+            "type": "string"
+          },
+          "versao": {
+            "type": "string"
+          },
+          "ncm": {
+            "type": "string"
+          }
+        }
+      },
+      "Produtos": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Produto"
+        }
+      },
+      "Ncm": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "codigo": {
+            "type": "string"
+          }
+        }
+      },
+      "Ncms": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Ncm"
+        }
+      }
+    },
+    "securitySchemes": {
+      "auth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
